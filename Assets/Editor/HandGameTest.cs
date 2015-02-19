@@ -132,4 +132,28 @@ public class HandGameTest
 	{
 		AssertPlayer2Wins (Move.Spock, Move.Lizzard);
 	}
+	
+	[Test]
+	public void AssertLizzardBeatsSpock ()
+	{
+		AssertPlayer1Wins (Move.Lizzard, Move.Spock);
+	}
+	
+	[Test]
+	public void AssertLizzardBeatsPaper ()
+	{
+		AssertPlayer1Wins (Move.Lizzard, Move.Paper);
+	}
+	
+	[Test]
+	public void AssertLizzarIsBeatedByRock ()
+	{
+		AssertPlayer2Wins (Move.Lizzard, Move.Rock);
+	}
+	
+	[Test]
+	public void AssertLizzardIsBeatedByScissors ()
+	{
+		AssertPlayer2Wins (Move.Lizzard, Move.Scissors);
+	}
 }
