@@ -16,21 +16,21 @@ public class HandGameTest
 		player2 = Substitute.For<IPlayer> ();
 	}
 	
-	private void Play (Move player1Move, Move player2Move)
+	private void Play (MoveType player1Move, MoveType player2Move)
 	{
 		player1.Move.Returns (player1Move);
 		player2.Move.Returns (player2Move);
 		handGame.Play (player1, player2);
 	}
 	
-	private void AssertPlayer1Wins(Move player1Move, Move player2Move)
+	private void AssertPlayer1Wins(MoveType player1Move, MoveType player2Move)
 	{
 		Play (player1Move, player2Move);
 		Assert.AreEqual (1, player1.VictoriesCount);
 		Assert.AreEqual (0, player2.VictoriesCount);
 	}
 	
-	private void AssertPlayer2Wins(Move player1Move, Move player2Move)
+	private void AssertPlayer2Wins(MoveType player1Move, MoveType player2Move)
 	{
 		Play (player1Move, player2Move);
 		Assert.AreEqual (0, player1.VictoriesCount);
@@ -40,120 +40,120 @@ public class HandGameTest
 	[Test]
 	public void AssertPaperBeatsRock ()
 	{
-		AssertPlayer1Wins (Move.Paper, Move.Rock);
+		AssertPlayer1Wins (MoveType.Paper, MoveType.Rock);
 	}
 	
 	[Test]
 	public void AssertPaperBeatsSpock ()
 	{
-		AssertPlayer1Wins (Move.Paper, Move.Spock);
+		AssertPlayer1Wins (MoveType.Paper, MoveType.Spock);
 	}
 	
 	[Test]
 	public void AssertPaperIsBeatedByScissors ()
 	{
-		AssertPlayer2Wins (Move.Paper, Move.Scissors);
+		AssertPlayer2Wins (MoveType.Paper, MoveType.Scissors);
 	}
 	
 	[Test]
 	public void AssertPaperIsBeatedByLizzard ()
 	{
-		AssertPlayer2Wins (Move.Paper, Move.Lizzard);
+		AssertPlayer2Wins (MoveType.Paper, MoveType.Lizzard);
 	}
 	
 	[Test]
 	public void AssertRockBeatsScissors ()
 	{
-		AssertPlayer1Wins (Move.Rock, Move.Scissors);
+		AssertPlayer1Wins (MoveType.Rock, MoveType.Scissors);
 	}
 	
 	[Test]
 	public void AssertRockBeatsLizzard ()
 	{
-		AssertPlayer1Wins (Move.Rock, Move.Lizzard);
+		AssertPlayer1Wins (MoveType.Rock, MoveType.Lizzard);
 	}
 	
 	[Test]
 	public void AssertRockIsBeatedByPaper ()
 	{
-		AssertPlayer2Wins (Move.Rock, Move.Paper);
+		AssertPlayer2Wins (MoveType.Rock, MoveType.Paper);
 	}
 	
 	[Test]
 	public void AssertRockIsBeatedBySpock ()
 	{
-		AssertPlayer2Wins (Move.Rock, Move.Spock);
+		AssertPlayer2Wins (MoveType.Rock, MoveType.Spock);
 	}
 	
 	[Test]
 	public void AssertScissorsBeatsPaper ()
 	{
-		AssertPlayer1Wins (Move.Scissors, Move.Paper);
+		AssertPlayer1Wins (MoveType.Scissors, MoveType.Paper);
 	}
 	
 	[Test]
 	public void AssertScissorsBeatsLizzard ()
 	{
-		AssertPlayer1Wins (Move.Scissors, Move.Lizzard);
+		AssertPlayer1Wins (MoveType.Scissors, MoveType.Lizzard);
 	}
 	
 	[Test]
 	public void AssertScissorsIsBeatedByRock ()
 	{
-		AssertPlayer2Wins (Move.Scissors, Move.Rock);
+		AssertPlayer2Wins (MoveType.Scissors, MoveType.Rock);
 	}
 	
 	[Test]
 	public void AssertScissorsIsBeatedBySpock ()
 	{
-		AssertPlayer2Wins (Move.Scissors, Move.Spock);
+		AssertPlayer2Wins (MoveType.Scissors, MoveType.Spock);
 	}
 	
 	[Test]
 	public void AssertSpockBeatsScissors ()
 	{
-		AssertPlayer1Wins (Move.Spock, Move.Scissors);
+		AssertPlayer1Wins (MoveType.Spock, MoveType.Scissors);
 	}
 	
 	[Test]
 	public void AssertSpockBeatsRock ()
 	{
-		AssertPlayer1Wins (Move.Spock, Move.Rock);
+		AssertPlayer1Wins (MoveType.Spock, MoveType.Rock);
 	}
 	
 	[Test]
 	public void AssertSpocksIsBeatedByPaper ()
 	{
-		AssertPlayer2Wins (Move.Spock, Move.Paper);
+		AssertPlayer2Wins (MoveType.Spock, MoveType.Paper);
 	}
 	
 	[Test]
 	public void AssertSpockIsBeatedByLizzard ()
 	{
-		AssertPlayer2Wins (Move.Spock, Move.Lizzard);
+		AssertPlayer2Wins (MoveType.Spock, MoveType.Lizzard);
 	}
 	
 	[Test]
 	public void AssertLizzardBeatsSpock ()
 	{
-		AssertPlayer1Wins (Move.Lizzard, Move.Spock);
+		AssertPlayer1Wins (MoveType.Lizzard, MoveType.Spock);
 	}
 	
 	[Test]
 	public void AssertLizzardBeatsPaper ()
 	{
-		AssertPlayer1Wins (Move.Lizzard, Move.Paper);
+		AssertPlayer1Wins (MoveType.Lizzard, MoveType.Paper);
 	}
 	
 	[Test]
 	public void AssertLizzarIsBeatedByRock ()
 	{
-		AssertPlayer2Wins (Move.Lizzard, Move.Rock);
+		AssertPlayer2Wins (MoveType.Lizzard, MoveType.Rock);
 	}
 	
 	[Test]
 	public void AssertLizzardIsBeatedByScissors ()
 	{
-		AssertPlayer2Wins (Move.Lizzard, Move.Scissors);
+		AssertPlayer2Wins (MoveType.Lizzard, MoveType.Scissors);
 	}
 }
